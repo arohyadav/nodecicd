@@ -5,40 +5,40 @@ const { Sequelize, DataTypes } = require('sequelize');
 // Initialize Express app
 const app = express();
 
-// // Parse incoming request bodies in a middleware
-// app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded({ extended: true }));
+// Parse incoming request bodies in a middleware
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
-// // Define Sequelize database connection
+// Define Sequelize database connection
 
-// var sequelize = new Sequelize('postgres://postgres:arohyadav@localhost:5432/postgres');
+var sequelize = new Sequelize('postgres://postgres:arohyadav@localhost:5432/postgres');
 
-// // Define a model for the form data
-// const Form1 = sequelize.define('Form1', {
-//   fullname: {
-//     type: DataTypes.STRING,
-//     allowNull: false,
-//   },
-//   email: {
-//     type: DataTypes.STRING,
-//     allowNull: false,
-//   },
-//   workexperience: {
-//     type: DataTypes.TEXT,
-//     allowNull: false,
-//   },
-//   jobtitle: {
-//     type: DataTypes.STRING,
-//     allowNull: false,
-//   },
-//   phonenumber: {
-//     type: DataTypes.STRING,
-//     allowNull: false,
-//   },
-// });
+// Define a model for the form data
+const Form1 = sequelize.define('Form1', {
+  fullname: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  email: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  workexperience: {
+    type: DataTypes.TEXT,
+    allowNull: false,
+  },
+  jobtitle: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  phonenumber: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+});
 
-// // Create the table in the database
-// Form1.sync();
+// Create the table in the database
+Form1.sync();
 
 // Define a route for handling form submissions
 app.post('/submit-form', async (req, res) => {
