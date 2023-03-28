@@ -75,7 +75,8 @@ app.post('/submit-form', async (req, res) => {
   });
 
 // Start the server
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Server listening on port ${PORT}`);
-});
+const PORT = process.env.PORT || 8000;
+app.listen(port, function () {
+        // Logging to console
+        console.log(`app running on http://0.0.0.0:${port}`)
+    })
