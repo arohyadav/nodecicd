@@ -12,6 +12,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Define Sequelize database connection
 
 var sequelize = new Sequelize('postgres://postgres:arohyadav@localhost:5432/postgres');
+const testconnection = async(req,res) => {
+try {
+  await sequelize.authenticate();
+  console.log('Connection has been established successfully.');
+} catch (error) {
+  console.error('Unable to connect to the database:', error);
+}
+}
 
 // Define a model for the form data
 const Form1 = sequelize.define('Form1', {
