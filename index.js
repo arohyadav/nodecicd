@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // Define Sequelize database connection
 
-var sequelize = new Sequelize('postgres://postgres:arohyadav@192.168.1.5:5432/postgres');
+var sequelize = new Sequelize('postgres://postgres:arohyadav@localhost:5432/postgres');
 const testconnection = async(req,res) => {
 try {
   await sequelize.authenticate();
