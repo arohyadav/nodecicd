@@ -14,10 +14,10 @@ RUN npm install
 COPY . .
 
 # Set environment variables for the Postgres database
-ENV POSTGRES_USER=postgres \
-    POSTGRES_PASSWORD=arohyadav \
-    POSTGRES_DB=mydb \
-    POSTGRES_HOST=postgres
+# ENV POSTGRES_USER=postgres \
+#     POSTGRES_PASSWORD=arohyadav \
+#     POSTGRES_DB=mydb \
+#     POSTGRES_HOST=postgres
 
 # Expose the port that the application will run on
 EXPOSE 8000
