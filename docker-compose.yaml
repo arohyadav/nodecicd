@@ -1,27 +1,25 @@
-# docker-compose.yml
-version: "3"
+version: '3.8'
 services:
-  app:
-    restart: on-failure
-    build: .
-    depends_on:
-      - postgres
-    environment:
-      DATABASE_URL: postgres://postgres:arohyadav@postgres:5432/db
-      NODE_ENV: development
-      PORT: 8000
-    ports:
-      - "8000:8000"
-    command: node server.js
-    volumes:
-      - .:/app/
-      - /app/node_modules
-
   postgres:
-    image: postgres:11
-    ports:
-      - "35432:5432"
+    image: postgres
+    restart: always
     environment:
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: arohaydav
-      POSTGRES_DB: contact
+      POSTGRES_PASSWORD: arohyadav
+      POSTGRES_DB: form
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./data/postgres:/var/lib/postgresql/data
+
+  node:
+    build: .
+    restart: always
+    ports:
+      - "8000:8000"
+    environment:
+      PGUSER: postgres
+      PGHOST: postgres
+      PGDATABASE: form
+      PGPASSWORD: arohyadav
+      PGPORT: 5432
