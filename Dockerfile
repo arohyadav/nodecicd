@@ -23,5 +23,5 @@ ENV POSTGRES_USER=postgres \
 EXPOSE 8000
 
 # Start the Node.js app
-CMD ["npm", "start"]
+CMD ["node", "index"]
 
